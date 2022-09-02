@@ -1,23 +1,23 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_THOUGHTS = gql`
-    query allThoughts{
-        thoughts {
+export const QUERY_LETTERS = gql`
+    query allLetters{
+        letters {
             _id
-            thoughtText
-            thoughtAuthor
+            letterText
+            letterAuthor
             createdAt
             comments
         }
     }
 `;
 
-export const QUERY_SINGLE_THOUGHT = gql`
-    query singleThought($thoughtId: ID!){
-        thought(thoughtId: $thoughtId) {
+export const QUERY_SINGLE_LETTER = gql`
+    query singleLetter($letterId: ID!){
+        letter(letterId: $letterId) {
             _id
-            thoughtText
-            thoughtAuthor
+            letterText
+            letterAuthor
             createdAt
             comments
         }
