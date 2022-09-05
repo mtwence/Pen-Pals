@@ -1,23 +1,52 @@
-const { Thought } = require('../models');
+const { User, Letter } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    thoughts: async () => {
-      return Thought.find().sort({ createdAt: -1 });
+    users: async () => {
+      return User.find();
+    },
+    user: async (parent, { userId }) => {
+      return User.findOne({ _id: userId });
+    },
+    letters: async () => {
+      return Letter.find().sort({ createdAt: -1 });
     },
 
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
+    letter: async (parent, { letterId }) => {
+      return Letter.findOne({ _id: letterId });
     },
   },
 
   Mutation: {
-    addThought: async (parent, { thoughtText, thoughtAuthor }) => {
-      return Thought.create({ thoughtText, thoughtAuthor });
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+
+      return { token, user };
     },
-    addComment: async (parent, { thoughtId, commentText }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError('No user with this email found!');
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect password!');
+      }
+
+      const token = signToken(user);
+      return { token, user };
+    },
+    addLetter: async (parent, { letterText, letterAuthor }) => {
+      return Letter.create({ letterText, letterAuthor });
+    },
+    addComment: async (parent, { letterId, commentText }) => {
+      return Letter.findOneAndUpdate(
+        { _id: letterId },
         {
           $addToSet: { comments: { commentText } },
         },
@@ -27,12 +56,12 @@ const resolvers = {
         }
       );
     },
-    removeThought: async (parent, { thoughtId }) => {
-      return Thought.findOneAndDelete({ _id: thoughtId });
+    removeLetter: async (parent, { letterId }) => {
+      return Letter.findOneAndDelete({ _id: letterId });
     },
-    removeComment: async (parent, { thoughtId, commentId }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
+    removeComment: async (parent, { letterId, commentId }) => {
+      return Letter.findOneAndUpdate(
+        { _id: letterId },
         { $pull: { comments: { _id: commentId } } },
         { new: true }
       );
