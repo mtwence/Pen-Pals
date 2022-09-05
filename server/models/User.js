@@ -1,9 +1,12 @@
 const { Schema, model } = require('mongoose');
-
+const dateFormat = require('../utils/dateFormat');
 const userSchema = new Schema({
     username: {
         type: String,
         required: true,
+        minlength: 1,
+        maxlength: 60,
+        trim: true,
         unique: true,
         trim: true,
       },
@@ -18,6 +21,7 @@ const userSchema = new Schema({
         required: true,
         minlength: 5,
       },
+
 })
 
 const User = model('User', userSchema);
