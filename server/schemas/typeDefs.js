@@ -9,10 +9,6 @@ const typeDefs = gql`
     affirmations: [String]
   }
   
-  type Query {
-    users: [User]!
-    user (userId: ID!): User
-  }
   type Auth {
     token: ID!
     user: User
