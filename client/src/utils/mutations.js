@@ -17,9 +17,26 @@ export const ADD_USER = gql`
       token
       user {
         _id
+        username
+        email
+        password
       }
     }
   }
+`;
+
+export const REMOVE_USER = gql`
+mutation deleteUser($_id: String!) {
+  deleteUser(_id: $_id) {
+    user {
+      _id
+      username
+      email
+      password
+      affirmations
+    }
+  }
+}
 `;
 
 // export const ADD_LETTER = gql`
