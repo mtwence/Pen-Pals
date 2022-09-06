@@ -1,0 +1,26 @@
+[
+    {
+        "letterText": "Hello, world!",
+        "letterAuthor": "1"
+    },
+
+    {
+        "letterText": "Howdy Partna'",
+        "letterAuthor": "2"
+    },
+
+    {
+        "letterText": "Listen Now Sunny",
+        "letterAuthor": "3"
+    },
+
+    {
+        "letterText": "GabaGhool",
+        "letterAuthor": "4"
+    },
+
+    {
+        "letterText": "Kevin is the Goat",
+        "letterAuthor": "5"
+    }
+]
