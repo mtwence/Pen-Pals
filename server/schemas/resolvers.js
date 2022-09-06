@@ -17,6 +17,8 @@ const resolvers = {
     letter: async (parent, { letterId }) => {
       return Letter.findOne({ _id: letterId });
     },
+    responses: async (parent, { responses }) => {
+      return Letter.find({ _id: responses });
   },
 
   Mutation: {
@@ -45,11 +47,11 @@ const resolvers = {
     addLetter: async (parent, { letterText, letterAuthor }) => {
       return Letter.create({ letterText, letterAuthor });
     },
-    addComment: async (parent, { letterId, commentText }) => {
+    addResponse: async (parent, { letterId, letterText}) => {
       return Letter.findOneAndUpdate(
         { _id: letterId },
         {
-          $addToSet: { comments: { commentText } },
+          $addToSet: { responses: { letterText } },
         },
         {
           new: true,
@@ -60,10 +62,10 @@ const resolvers = {
     removeLetter: async (parent, { letterId }) => {
       return Letter.findOneAndDelete({ _id: letterId });
     },
-    removeComment: async (parent, { letterId, commentId }) => {
+    removeResponse: async (parent, { letterId }) => {
       return Letter.findOneAndUpdate(
         { _id: letterId },
-        { $pull: { comments: { _id: commentId } } },
+        { $pull: { responses: { _id: letterId } } },
         { new: true }
       );
     },
