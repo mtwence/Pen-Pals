@@ -1,1 +1,27 @@
-
+[
+    {
+        "username": "Gleepy",
+        "email": "gleepy@gmail.com",
+        "password": "password"
+    },
+    {
+        "username": "Gloopy",
+        "email": "gloopy@gmail.com",
+        "password": "password1"
+    },
+    {
+        "username": "Gluppy",
+        "email": "gluppy@gmail.com",
+        "password": "password2"
+    },
+    {
+        "username": "Glippy",
+        "email": "glippy@gmail.com",
+        "password": "password3"
+    },
+    {
+        "username": "Glappy",
+        "email": "glappy@gmail.com",
+        "password": "password4"
+    }
+]
