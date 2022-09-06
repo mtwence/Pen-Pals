@@ -9,7 +9,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import BBoard from './pages/BBoard';
-import Login from './pages/Login';
+import Entry from './pages/Entry';
 import Compose from './pages/Compose';
 import Response from './pages/Response';
 
@@ -42,8 +42,8 @@ const httpLink = createHttpLink({
         element={<BBoard />} 
         />
         <Route 
-        path="/login" 
-        element={<Login />} 
+        path="/loginsignup" 
+        element={<Entry />} 
         />
         <Route
         path="/compose"
