@@ -1,21 +1,21 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { User, Letter } = require('../models');
-const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require("apollo-server-express");
+const { User, Letter } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     users: async () => {
       return User.find();
     },
-    user: async (parent, { userId }) => {
-      return User.findOne({ _id: userId });
+    user: async (parent, { _id }) => {
+      return User.findOne({ _id: _id });
     },
     letters: async () => {
       return Letter.find().sort({ createdAt: -1 });
     },
 
-    letter: async (parent, { letterId }) => {
-      return Letter.findOne({ _id: letterId });
+    letter: async (parent, { _id }) => {
+      return Letter.findOne({ _id: _id });
     },
     // responses: async (parent, { responses }) => {
     //   return Letter.find({ _id: responses });
@@ -32,21 +32,21 @@ const resolvers = {
       //   const user = await User.findOne({ email });
 
       //   if (!user) {
-      //     throw new AuthenticationError('No user with this email found!');
+      //     throw new AuthenticationError("No user with this email found!");
       //   }
 
       //   const correctPw = await user.isCorrectPassword(password);
 
       //   if (!correctPw) {
-      //     throw new AuthenticationError('Incorrect password!');
+      //     throw new AuthenticationError("Incorrect password!");
       //   }
 
       //   const token = signToken(user);
       //   return { token, user };
       // },
-      addLetter: async (parent, { letterText, letterAuthor }) => {
-        return Letter.create({ letterText, letterAuthor });
-      },
+      // addLetter: async (parent, { letterText, letterAuthor }) => {
+      //   return Letter.create({ letterText, letterAuthor });
+      // },
       // addResponse: async (parent, { letterId, letterText }) => {
       //   return Letter.findOneAndUpdate(
       //     { _id: letterId },
@@ -59,9 +59,9 @@ const resolvers = {
       //     }
       //   );
       // },
-      removeLetter: async (parent, { letterId }) => {
-        return Letter.findOneAndDelete({ _id: letterId });
-      },
+      // removeLetter: async (parent, { _id }) => {
+      //   return Letter.findOneAndDelete({ _id: _id });
+      // },
       // removeResponse: async (parent, { letterId }) => {
       //   return Letter.findOneAndUpdate(
       //     { _id: letterId },
@@ -73,4 +73,4 @@ const resolvers = {
   },
 };
 
-  module.exports = resolvers;
+module.exports = resolvers;

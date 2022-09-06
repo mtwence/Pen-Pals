@@ -1,3 +1,4 @@
-const Letter = require('./Letter');
+const Letter = require("./Letter");
+const User = require("./User");
 
-module.exports = { Letter };
+module.exports = { Letter, User };
