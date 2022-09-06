@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Letter } = require("../models");
+const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -10,25 +10,45 @@ const resolvers = {
     user: async (parent, { _id }) => {
       return User.findOne({ _id: _id });
     },
-    letters: async () => {
-      return Letter.find().sort({ createdAt: -1 });
-    },
-
-    letter: async (parent, { _id }) => {
-      return Letter.findOne({ _id: _id });
-    },
-    // responses: async (parent, { responses }) => {
-    //   return Letter.find({ _id: responses });
-    // },
 
     Mutation: {
       addUser: async (parent, { username, email, password }) => {
-        const user = await User.create({ username, email, password });
+        const user = await User.create({ username, email, password, });
         const token = signToken(user);
 
         return { token, user };
       },
-      // login: async (parent, { email, password }) => {
+      deleteUser: async (parent, { _id }) => {
+        return User.findOneAndDelete({ _id });
+      },
+      addAffirmation: async (parent, { affirmations }) => {
+        return User.findOneAndUpdate(
+          { _id: _id },
+          {
+            $addToSet: { affirmations: [affirmations]},
+          }
+        )
+      },
+    },
+  }.
+};
+
+  module.exports = resolvers;
+
+
+
+    // letters: async () => {
+    //   return Letter.find().sort({ createdAt: -1 });
+    // },
+
+    // letter: async (parent, { _id }) => {
+    //   return Letter.findOne({ _id: _id });
+    // },
+    // responses: async (parent, { responses }) => {
+    //   return Letter.find({ _id: responses });
+    // },
+
+        // login: async (parent, { email, password }) => {
       //   const user = await User.findOne({ email });
 
       //   if (!user) {
@@ -69,8 +89,3 @@ const resolvers = {
       //     { new: true }
       //   );
       // },
-    },
-  },
-};
-
-module.exports = resolvers;
