@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
@@ -30,38 +29,44 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/signup"><button>Sign Up Here</button></Link>
-
+    <div class="col-4 container h-100">
       <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="username">Username</label>
+      <form class="mx-1 mx-md-4" onSubmit={handleFormSubmit}>
+        <div class="d-flex flex-row align-items-center mb-4">
+          <i class="fa fa-user fa-lg me-3 fa-fw"></i>
+          <div class="form-outline flex-fill mb-0">
           <input
             placeholder="Your Username, Please"
             name="username"
             type="username"
             id="username"
+            class="form-control"
             onChange={handleChange}
           />
+          <label class="form-label" htmlFor="username">Username</label>
+          </div>
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
+        <div class="d-flex flex-row align-items-center mb-4">
+          <i class="fa fa-lock fa-lg me-3 fa-fw"></i>
+          <div class="form-outline flex-fill mb-0">
+            <input
             placeholder="Your Password, Please"
             name="password"
             type="password"
             id="pwd"
+            class="form-control"
             onChange={handleChange}
           />
+            <label class="form-label" htmlFor="pwd">Password</label>
+          </div>
         </div>
         {error ? (
           <div>
             <p className="error-text">The username or password is incorrect.</p>
           </div>
         ) : null}
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+          <button type="submit" class="btn btn-primary btn-lg">Login</button>
         </div>
       </form>
     </div>
