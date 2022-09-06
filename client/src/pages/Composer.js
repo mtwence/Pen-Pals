@@ -42,14 +42,6 @@ const letterComposer = ({ letterId }) => {
 
       {Auth.loggedIn() ? (
         <>
-          <p
-            className={`m-0 ${
-              characterCount === 800 || error ? 'text-danger' : ''
-            }`}
-          >
-            Character Count: {characterCount}/800
-            {error && <span className="ml-2">{error.message}</span>}
-          </p>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
@@ -64,12 +56,21 @@ const letterComposer = ({ letterId }) => {
                 onChange={handleChange}
               ></textarea>
             </div>
-
+    
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
                 Send Letter
               </button>
             </div>
+
+            <p
+            className={`m-0 ${
+              characterCount === 800 || error ? 'text-danger' : ''
+            }`}
+          >
+            Character Count: {characterCount}/800
+            {error && <span className="ml-2">{error.message}</span>}
+          </p>
           </form>
         </>
       ) : (
