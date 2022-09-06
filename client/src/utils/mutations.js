@@ -37,7 +37,7 @@ export const ADD_LETTER = gql`
             letterText
             letterAuthor
             createdAt
-            comments
+            responses
         }
     }
 `;

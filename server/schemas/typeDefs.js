@@ -8,12 +8,13 @@ const typeDefs = gql`
     password: String!
     letter: [Letter]!
   }
+  
   type Letter {
     _id: ID
     letterText: String!
     letterAuthor: String!
     createdAt: Date
-    comments: [Comment]!
+    Responses: [Letter]!
   }
 
   type Comment {
@@ -29,9 +30,7 @@ const typeDefs = gql`
 
   type Mutation {
     addLetter(letterText: String!, letterAuthor: String!): Letter
-    addComment(letterId: ID!, commentText: String!): Letter
     removeLetter(letterId: ID!): Letter
-    removeComment(letterId: ID!, commentId: ID!): Letter
   }
 `;
 
