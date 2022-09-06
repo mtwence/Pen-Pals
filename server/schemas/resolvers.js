@@ -15,24 +15,25 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in.");
     },
   },
-  Mutation: {
-    addUser: async (parent, args) => {
-      const user = await User.create(args);
-      const token = signToken(user);
-      return { token, user };
-    },
+
+  
 
     Mutation: {
-      addUser: async (parent, { username, email, password }) => {
-        const user = await User.create({ username, email, password, });
+      addUser: async (parent, args) => {
+        const user = await User.create(args);
         const token = signToken(user);
-
         return { token, user };
+      },
+      login: async (parent, { email, password }) => {
+        const user = await User.findOne({ email });
+        if (!user) {
+          throw new AuthenticationError("Invalid credentials, user not found.");
+        }
       },
       deleteUser: async (parent, { _id }) => {
         return User.findOneAndDelete({ _id });
       },
-      addAffirmation: async (parent, { affirmations }) => {
+      updateUser: async (parent, { affirmations }) => {
         return User.findOneAndUpdate(
           { _id: _id },
           {
@@ -41,8 +42,7 @@ const resolvers = {
         )
       },
     },
-  },
-};
+  };
 
   module.exports = resolvers;
 
@@ -100,16 +100,6 @@ const resolvers = {
       //     { new: true }
       //   );
       // },
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
-      if (!user) {
-        throw new AuthenticationError("Invalid credentials, user not found.");
-      }
-    },
-  },
-};
-
-module.exports = resolvers;
 
 // const { AuthenticationError } = require("apollo-server-express");
 // //const { User, Letter } = require("../models");
