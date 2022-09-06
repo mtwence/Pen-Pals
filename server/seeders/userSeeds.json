@@ -2,26 +2,31 @@
     {
         "username": "Gleepy",
         "email": "gleepy@gmail.com",
-        "password": "password"
+        "password": "password",
+        "affirmations": ["Be kind to myself", "Do Good"]
     },
     {
         "username": "Gloopy",
         "email": "gloopy@gmail.com",
-        "password": "password1"
+        "password": "password1",
+        "affirmations": ["Make this work", "Figure it out", "You Suck"]
     },
     {
         "username": "Gluppy",
         "email": "gluppy@gmail.com",
-        "password": "password2"
+        "password": "password2",
+        "affirmations": ["14k just to fail", "Blah Blah Blah"]
     },
     {
         "username": "Glippy",
         "email": "glippy@gmail.com",
-        "password": "password3"
+        "password": "password3",
+        "affirmations": ["Youre terribe", "Dissapointed in myself"]
     },
     {
         "username": "Glappy",
         "email": "glappy@gmail.com",
-        "password": "password4"
+        "password": "password4",
+        "affirmations": ["Die", "Die Again"]
     }
 ]

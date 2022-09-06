@@ -22,17 +22,17 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_LETTER = gql`
-  mutation addLetter($letterText: String!, $letterAuthor: String!) {
-    addLetter(letterText: $letterText, letterAuthor: $letterAuthor) {
-      _id
-      letterText
-      letterAuthor
-      createdAt
-      responses
-    }
-  }
-`;
+// export const ADD_LETTER = gql`
+//   mutation addLetter($letterText: String!, $letterAuthor: String!) {
+//     addLetter(letterText: $letterText, letterAuthor: $letterAuthor) {
+//       _id
+//       letterText
+//       letterAuthor
+//       createdAt
+//       responses
+//     }
+//   }
+// `;
 
 // export const ADD_RESPONSE = gql`
 //     mutation addResponse($letterId: ID!, $commentText: String!){
