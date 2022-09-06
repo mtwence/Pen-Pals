@@ -1,5 +1,20 @@
 import { gql } from '@apollo/client';
 
+export const QUERY_USER = gql`
+  {
+    user {
+      username
+      letters {
+        _id
+        letterText
+        responses {
+          responseText
+        }
+      }
+    }
+  }
+`;
+
 export const QUERY_LETTERS = gql`
     query allLetters{
         letters {

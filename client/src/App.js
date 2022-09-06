@@ -1,11 +1,35 @@
-import React from "react";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
-import Home from './pages/Home';
+import BBoard from './pages/BBoard';
+import Login from './pages/Login';
+import Compose from './pages/Compose';
+import Response from './pages/Response';
 
-const client = new ApolloClient({
-    uri: "/graphql",
+const httpLink = createHttpLink({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
+
+  const authLink = setContext((_, { headers }) => {
+    const token = localStorage.getItem('id_token');
+    return {
+      headers: {
+        ...headers,
+        authorization: token ? `Bearer ${token}` : '',
+      },
+    };
+  });
+  
+  const client = new ApolloClient({
+    link: authLink.concat(httpLink),
     cache: new InMemoryCache(),
   });
 
@@ -13,7 +37,22 @@ const client = new ApolloClient({
     return (
       <ApolloProvider client={client}>
         <Router>
-          
+        <Route 
+        path="/" 
+        element={<BBoard />} 
+        />
+        <Route 
+        path="/login" 
+        element={<Login />} 
+        />
+        <Route
+        path="/compose"
+        element={<Compose />}
+        />
+        <Route
+        path="/responses"
+        element={<Response/>}
+        />
         </Router>
       </ApolloProvider>
     );
