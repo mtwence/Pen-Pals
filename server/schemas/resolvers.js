@@ -17,59 +17,60 @@ const resolvers = {
     letter: async (parent, { letterId }) => {
       return Letter.findOne({ _id: letterId });
     },
-    responses: async (parent, { responses }) => {
-      return Letter.find({ _id: responses });
-  },
+    // responses: async (parent, { responses }) => {
+    //   return Letter.find({ _id: responses });
+    // },
 
-  Mutation: {
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
-      const token = signToken(user);
+    Mutation: {
+      addUser: async (parent, { username, email, password }) => {
+        const user = await User.create({ username, email, password });
+        const token = signToken(user);
 
-      return { token, user };
-    },
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+        return { token, user };
+      },
+      // login: async (parent, { email, password }) => {
+      //   const user = await User.findOne({ email });
 
-      if (!user) {
-        throw new AuthenticationError('No user with this email found!');
-      }
+      //   if (!user) {
+      //     throw new AuthenticationError('No user with this email found!');
+      //   }
 
-      const correctPw = await user.isCorrectPassword(password);
+      //   const correctPw = await user.isCorrectPassword(password);
 
-      if (!correctPw) {
-        throw new AuthenticationError('Incorrect password!');
-      }
+      //   if (!correctPw) {
+      //     throw new AuthenticationError('Incorrect password!');
+      //   }
 
-      const token = signToken(user);
-      return { token, user };
-    },
-    addLetter: async (parent, { letterText, letterAuthor }) => {
-      return Letter.create({ letterText, letterAuthor });
-    },
-    addResponse: async (parent, { letterId, letterText}) => {
-      return Letter.findOneAndUpdate(
-        { _id: letterId },
-        {
-          $addToSet: { responses: { letterText } },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-    },
-    removeLetter: async (parent, { letterId }) => {
-      return Letter.findOneAndDelete({ _id: letterId });
-    },
-    removeResponse: async (parent, { letterId }) => {
-      return Letter.findOneAndUpdate(
-        { _id: letterId },
-        { $pull: { responses: { _id: letterId } } },
-        { new: true }
-      );
+      //   const token = signToken(user);
+      //   return { token, user };
+      // },
+      addLetter: async (parent, { letterText, letterAuthor }) => {
+        return Letter.create({ letterText, letterAuthor });
+      },
+      // addResponse: async (parent, { letterId, letterText }) => {
+      //   return Letter.findOneAndUpdate(
+      //     { _id: letterId },
+      //     {
+      //       $addToSet: { responses: { letterText } },
+      //     },
+      //     {
+      //       new: true,
+      //       runValidators: true,
+      //     }
+      //   );
+      // },
+      removeLetter: async (parent, { letterId }) => {
+        return Letter.findOneAndDelete({ _id: letterId });
+      },
+      // removeResponse: async (parent, { letterId }) => {
+      //   return Letter.findOneAndUpdate(
+      //     { _id: letterId },
+      //     { $pull: { responses: { _id: letterId } } },
+      //     { new: true }
+      //   );
+      // },
     },
   },
 };
 
-module.exports = resolvers;
+  module.exports = resolvers;
