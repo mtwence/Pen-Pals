@@ -25,15 +25,11 @@ export const ADD_USER = gql`
   }
 `;
 
-export const REMOVE_USER = gql`
-mutation deleteUser($_id: String!) {
-  deleteUser(_id: $_id) {
+export const DELETE_USER = gql`
+mutation deleteUser($_id: String) {
+  deleteUser(id: $_id) {
     user {
       _id
-      username
-      email
-      password
-      affirmations
     }
   }
 }
