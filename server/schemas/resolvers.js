@@ -22,18 +22,21 @@ const resolvers = {
         const token = signToken(user);
         return { token, user };
       },
+  
       login: async (parent, { email, password }) => {
         const user = await User.findOne({ email });
         if (!user) {
           throw new AuthenticationError("Invalid credentials, user not found.");
         }
       },
-      deleteUser: async (parent, { _id }) => {
-        return User.findOneAndDelete({ _id });
-      },
-      updateUser: async (parent, { affirmations }) => {
+
+      removeUser: async (parent, { id }) => {
+        return User.findByIdAndRemove(id);
+      }
+
+      updateUser: async (parent, { id, affirmations }) => {
         return User.findOneAndUpdate(
-          { _id: _id },
+          { _id: id },
           {
             $addToSet: { affirmations: [affirmations]},
           }
