@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-
-import Auth from "../utils/auth";
+import Letter from "../components/Letter/index";
 
 const BBoard = () => {
-  return <div>BBoard</div>;
+  return (
+    <div>
+      <Letter />
+    </div>
+  );
 };
 
 export default BBoard;
