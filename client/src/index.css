@@ -1,0 +1,13 @@
+#background {
+    color:pink;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.505), rgba(255, 255, 255, 0.030)), url('https://i.ytimg.com/vi/YEQ6SGAD940/maxresdefault.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-attachment: fixed;
+  }
+
+.envelope{
+    height: 75%;
+    width: 25%;
+    margin-bottom: 50px;
+}

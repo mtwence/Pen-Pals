@@ -19,13 +19,13 @@ const Sidebar = () => {
               data-bs-parent="#menu"
             >
               <li class="w-100">
-                <a href="#" class="nav-link px-0">
+                <a href="/" class="nav-link px-0">
                   <i class="fa fa-pencil fa-fw me-3"></i>
                   <span class="d-none d-sm-inline">Write</span>
                 </a>
               </li>
               <li class="w-100">
-                <a href="/" class="nav-link px-0">
+                <a href="*" class="nav-link px-0">
                   <i class="fa fa-board fa-fw me-3"></i>
                   <span class="d-none d-sm-inline">Board</span>
                 </a>

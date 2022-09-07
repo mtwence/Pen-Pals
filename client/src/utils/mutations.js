@@ -19,20 +19,19 @@ export const ADD_USER = gql`
         _id
         username
         email
-        password
       }
     }
   }
 `;
 
-export const DELETE_USER = gql`
-mutation deleteUser($_id: String) {
-  deleteUser(id: $_id) {
-    user {
-      _id
+export const REMOVE_USER = gql`
+  mutation deleteUser($_id: String) {
+    deleteUser(id: $_id) {
+      user {
+        _id
+      }
     }
   }
-}
 `;
 
 // export const ADD_LETTER = gql`
