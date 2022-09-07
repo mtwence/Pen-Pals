@@ -8,6 +8,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
+import Sidebar from "./components/Sidebar";
 import BBoard from "./pages/BBoard";
 import Entry from "./pages/Entry";
 //import Compose from './pages/Compose';
@@ -37,10 +38,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Routes>
-          <Route path="/" element={<BBoard />} />
-          <Route path="/loginsignup" element={<Entry />} />
-          {/* <Route
+        <div class="container-fluid">
+          <div class="row flex-nowrap">
+            <Sidebar />
+            <div class="col py-3">
+              <Routes>
+                <Route path="/" element={<BBoard />} />
+                <Route path="/loginsignup" element={<Entry />} />
+                {/* <Route
         path="/compose"
         element={<Compose />}
         />
@@ -48,7 +53,10 @@ function App() {
         path="/responses"
         element={<Response/>}
         /> */}
-        </Routes>
+              </Routes>
+            </div>
+          </div>
+        </div>
       </Router>
     </ApolloProvider>
   );
