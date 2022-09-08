@@ -12,6 +12,7 @@ import Sidebar from "./components/Sidebar";
 import BBoard from "./pages/BBoard";
 import BBoard2 from "./pages/BBoard2";
 import Entry from "./pages/Entry";
+import BGM from "./assets/Firelink_Shrine.mp3";
 //import Compose from './pages/Compose';
 //import Response from './pages/Response';
 
@@ -43,6 +44,13 @@ function App() {
           <div class="row flex-nowrap">
             <Sidebar />
             <div class="col py-3" id="background">
+              <embed
+                src={BGM}
+                loop="true"
+                autostart="true"
+                width="2"
+                height="0"
+              ></embed>
               <Routes>
                 <Route path="/" element={<BBoard />} />
                 <Route path="*" element={<BBoard2 />} />
