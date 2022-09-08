@@ -11,10 +11,12 @@
 
 body, html{
   font-family: 'Lora', serif;
+  font-weight: bold;
 }
 
 #letter {
   font-family: 'Qwitcher Grypen', cursive;
+  font-size: 50px;
 }
 
 .envelope{
