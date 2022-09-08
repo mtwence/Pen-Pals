@@ -18,12 +18,12 @@ A personal journalling application that will allow users to create accounts and 
 
 ## Roadmap
 
-The concept for Heart2Heart is for an application that would allow users to send anonymous letters that other users could then anonymously respond to. Like a random pen-pal per se, where you have the ability to respond to a metaphorical "message in a bottle".
+The original concept for Heart2Heart was an application that would allow users to send anonymous letters out into the world. These letters would then be "dynamically" shown to other users, giving them the ability to respond in kind anonymously. Like a random pen-pal per se, where you have the ability to respond to a metaphorical "message in a bottle". The core focus would be around mental health and cultivating positive, encouraging, empathetic conversations.
 
 ## Installation
 
 ```ruby
-npm install
+npm i
 ```
 
 ## Technologies Used
@@ -34,13 +34,9 @@ npm install
 
 Currently there are some bugs in deployment that we're working through.
 
-If you clone the repository and execute`ruby npm run develop` the server will start locally and you can utilize the site.
+If you clone the repository and execute `ruby npm run develop` the server will start locally and you can utilize the site.
 
 ## Usage
-
-### Website Demo
-
-![alt text]()
 
 ### Code Snippets
 
@@ -63,13 +59,18 @@ If you clone the repository and execute`ruby npm run develop` the server will st
 [LinkedIn](https://www.linkedin.com/in/michael-wence/) |
 [GitHub](https://github.com/mtwence)
 
+### **Clement Koo**
+
+[LinkedIn](https://www.linkedin.com/in/clement-t-k-459322138/) |
+[GitHub](https://github.com/C-K999)
+
 ## Credits
 
 UCB - Coding Bootcamp
 
 ## Questions
 
-If you have any questions about this repository, you can contact me at mtwence@gmail.com.
+If you have any questions about this repository, you can contact me at mtwence@gmail.com, or leave an issue on github.
 
 ## License
 
