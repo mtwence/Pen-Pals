@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Qwitcher+Grypen&display=swapay=swap');
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen&display=swap');
+
 #background {
     color:pink;
     background-image: linear-gradient(rgba(255, 255, 255, 0.505), rgba(255, 255, 255, 0.030)), url('https://i.ytimg.com/vi/YEQ6SGAD940/maxresdefault.jpg');
@@ -5,6 +8,16 @@
     background-size: cover; 
     background-attachment: fixed;
   }
+
+body, html{
+  font-family: 'Lora', serif;
+  font-weight: bold;
+}
+
+#letter {
+  font-family: 'Qwitcher Grypen', cursive;
+  font-size: 50px;
+}
 
 .envelope{
     height: 75%;
