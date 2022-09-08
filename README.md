@@ -51,6 +51,8 @@ npm i
 
 [Heart2Heart](https://heart-2-heartz.herokuapp.com/)
 
+Currently our deployed link does not lead properly to the login page, however it does on a local server. Clone the repositry and run `npm run develop` to start your local server.
+
 ## Usage
 
 #### Login/Signup Page
