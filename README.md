@@ -53,6 +53,12 @@ npm i
 
 ## Usage
 
+#### Login/Signup Page
+
+![Login/Signup](./client/src/assets/login)
+
+#### Homepage
+
 ![Homepage](./client/src/assets/homepage.png)
 
 ### Code Snippets
