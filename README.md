@@ -1,5 +1,7 @@
 # "Heart2Heart"
 
+![Logo](./client/src/assets/logo.png)
+
 ## Table of Contents
 
 - [Description](#description)
@@ -16,9 +18,17 @@
 
 A personal journalling application that will allow users to create accounts and post journal entries to a dashboard.
 
-## Roadmap
+### Roadmap
 
 The original concept for Heart2Heart was an application that would allow users to send anonymous letters out into the world. These letters would then be "dynamically" shown to other users, giving them the ability to respond in kind anonymously. Like a random pen-pal per se, where you have the ability to respond to a metaphorical "message in a bottle". The core focus would be around mental health and cultivating positive, encouraging, empathetic conversations.
+
+1. Phase One - Finish building out personal journaling functionality
+
+2. Phase Two - Add ability for users to view other users letters. Like from a bulletin board interface, from which they can respond.
+
+3. Phase Three - Polish UI. Add better logic for how letters are displayed to users.
+
+4. Phase Four - Integrate some more libraries and APIs to improve aesthetics and UX.
 
 ## Installation
 
@@ -28,15 +38,22 @@ npm i
 
 ## Technologies Used
 
+- React
+- MongoDB
+- Express
+- Node
+- Apollo/Graphql
+- JWT Authentication
+- Mongoose ODM
+- JSX
+
 ## Deployed Link
 
 [Heart2Heart](https://heart-2-heartz.herokuapp.com/)
 
-Currently there are some bugs in deployment that we're working through.
-
-If you clone the repository and execute `ruby npm run develop` the server will start locally and you can utilize the site.
-
 ## Usage
+
+![Homepage](./client/src/assets/homepage.png)
 
 ### Code Snippets
 
